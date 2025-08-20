@@ -89,7 +89,7 @@ public class Bubbles {
                         list.add(deadline);
                         System.out.println("New bubble added to your list 📃");
                         System.out.println(deadline.toString());
-                        System.out.println("Wohoo! You'veeve got " + list.size() + " sparkly tasks floating in your list! ✨");
+                        System.out.println("Wohoo! You've got " + list.size() + " sparkly tasks floating in your list! ✨");
                     } catch(BubblesException e){
                         System.out.println(e.getMessage());
                     }
@@ -109,18 +109,43 @@ public class Bubbles {
                 } else if (command.startsWith("mark")) {
                     String[] words = command.split(" ");
                     Task task = list.get(Integer.parseInt(words[1]) - 1);
-                    task.setDone();
 
-                    System.out.println("Yayyy! Let's pop this task off 🥳");
-                    System.out.println(task);
+                    if(task.getStatusIcon().equals("[X]")){
+                        System.out.println("Ayyyy! This task is already marked! 😅");
+                    }
+
+                    else {
+                        task.setDone();
+
+                        System.out.println("Yayyy! Let's pop this task off 🥳");
+                        System.out.println(task);
+                    }
+
                 } else if (command.startsWith("unmark")) {
                     String[] words = command.split(" ");
                     Task task = list.get(Integer.parseInt(words[1]) - 1);
-                    task.setNotDone();
 
-                    System.out.println("Okieee! Let's bubble it back in!");
+                    if(task.getStatusIcon().equals("[ ]")){
+                        System.out.println("Ayyyy! This task is already unmarked! 😅");
+                    }
+
+                    else {
+                        task.setNotDone();
+
+                        System.out.println("Okieee! Let's bubble it back in!");
+                        System.out.println(task);
+                    }
+                } else if(command.startsWith("delete")){
+                    String[] words = command.split(" ");
+                    Task task = list.get(Integer.parseInt(words[1]) - 1);
+                    list.remove(Integer.parseInt(words[1]) - 1);
+
+                    System.out.println("Poof! The task has drifted off from your list!");
                     System.out.println(task);
-                } else {
+                    System.out.println("Juss " + list.size() + " more tasks waiting to drift away!");
+                }
+
+                else {
                     throw new BubblesException("Sawwryy... that one bounced right off my bubblehead! I don't understand it yet 🥺");
                 }
             } catch (BubblesException e){

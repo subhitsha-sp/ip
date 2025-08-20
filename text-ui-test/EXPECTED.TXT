@@ -25,11 +25,23 @@ New bubble added to your list 📃
 Wohoo! You've got 3 sparkly tasks floating in your list! ✨
 --------------------------------------------------------
 --------------------------------------------------------
+Ayyyy! This task is already marked! 😅
+--------------------------------------------------------
+--------------------------------------------------------
+Okieee! Let's bubble it back in!
+	[T][ ] borrow book
+--------------------------------------------------------
+--------------------------------------------------------
+Poof! The task has drifted off from your list!
+	[D][ ] return book (by: Sunday)
+Juss 2 more tasks waiting to drift away!
+--------------------------------------------------------
+--------------------------------------------------------
 Here are the tasks in your list: 
-	1.	[T][X] borrow book
-	2.	[D][ ] return book (by: Sunday)
-	3.	[E][ ] project meeting (from: Mon 2pm to: 4pm)
+	1.	[T][ ] borrow book
+	2.	[E][ ] project meeting (from: Mon 2pm to: 4pm)
 --------------------------------------------------------
 --------------------------------------------------------
+Sawwryy... that one bounced right off my bubblehead! I don't understand it yet 🥺
 Byeee 👋
 --------------------------------------------------------
