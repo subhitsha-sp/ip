@@ -18,6 +18,7 @@ public class Bubbles {
             String[] words = command.split("todo", 2);
             Todo todo = new Todo(words[1]);
             list.add(todo);
+            System.out.println("New bubble added to your list 📃");
             System.out.println(todo.toString());
             System.out.println("Wohoo! You've got " + list.size() + " sparkly tasks floating in your list! ✨");
         }
@@ -26,6 +27,7 @@ public class Bubbles {
             String[] words = command.split("deadline", 2);
             Deadline deadline = new Deadline(words[1]);
             list.add(deadline);
+            System.out.println("New bubble added to your list 📃");
             System.out.println(deadline.toString());
             System.out.println("Wohoo! You've got " + list.size() + " sparkly tasks floating in your list! ✨");
         }
@@ -34,6 +36,7 @@ public class Bubbles {
             String[] words = command.split("event", 2);
             Event event = new Event(words[1]);
             list.add(event);
+            System.out.println("New bubble added to your list 📃");
             System.out.println(event.toString());
             System.out.println("Wohoo! You've got " + list.size() + " sparkly tasks floating in your list! ✨");
         }
@@ -48,6 +51,7 @@ public class Bubbles {
                 String[] words = command.split("todo", 2);
                 Todo todo = new Todo(words[1]);
                 list.add(todo);
+                System.out.println("New bubble added to your list 📃");
                 System.out.println(todo.toString());
                 System.out.println("Wohoo! You've got " + list.size() + " sparkly tasks floating in your list! ✨");
             }
@@ -56,6 +60,7 @@ public class Bubbles {
                 String[] words = command.split("deadline", 2);
                 Deadline deadline = new Deadline(words[1]);
                 list.add(deadline);
+                System.out.println("New bubble added to your list 📃");
                 System.out.println(deadline.toString());
                 System.out.println("Wohoo! You've got " + list.size() + " sparkly tasks floating in your list! ✨");
             }
@@ -64,6 +69,7 @@ public class Bubbles {
                 String[] words = command.split("event", 2);
                 Event event = new Event(words[1]);
                 list.add(event);
+                System.out.println("New bubble added to your list 📃");
                 System.out.println(event.toString());
                 System.out.println("Wohoo! You've got " + list.size() + " sparkly tasks floating in your list! ✨");
             }
@@ -81,8 +87,8 @@ public class Bubbles {
                 Task task = list.get(Integer.parseInt(words[1])-1);
                 task.setDone();
 
-                System.out.println("Yayyy! Let's pop this task off!");
-                System.out.println(task.getStatusIcon() + task.getDescription());
+                System.out.println("Yayyy! Let's pop this task off 🥳");
+                System.out.println(task);
             }
 
             if(command.startsWith("unmark")){
@@ -91,7 +97,7 @@ public class Bubbles {
                 task.setNotDone();
 
                 System.out.println("Okieee! Let's bubble it back in!");
-                System.out.println(task.getStatusIcon() + task.getDescription());
+                System.out.println(task);
             }
         }
 
