@@ -14,25 +14,65 @@ public class Bubbles {
 
         String command = scanner.nextLine();
         System.out.println(line);
-        if(!command.equals("list")){
-            list.add(new Task(command));
+        if(command.startsWith("todo")){
+            String[] words = command.split("todo", 2);
+            Todo todo = new Todo(words[1]);
+            list.add(todo);
+            System.out.println(todo.toString());
+            System.out.println("Wohoo! You've got " + list.size() + " sparkly tasks floating in your list! ✨");
         }
+
+        if(command.startsWith("deadline")){
+            String[] words = command.split("deadline", 2);
+            Deadline deadline = new Deadline(words[1]);
+            list.add(deadline);
+            System.out.println(deadline.toString());
+            System.out.println("Wohoo! You've got " + list.size() + " sparkly tasks floating in your list! ✨");
+        }
+
+        if(command.startsWith("event")){
+            String[] words = command.split("event", 2);
+            Event event = new Event(words[1]);
+            list.add(event);
+            System.out.println(event.toString());
+            System.out.println("Wohoo! You've got " + list.size() + " sparkly tasks floating in your list! ✨");
+        }
+
         while (!command.equals("bye")) {
-            if(!(command.equals("list") || command.startsWith("mark") || command.startsWith("unmark"))) {
-                System.out.println("\tadded: " + command);
-            }
+
             System.out.println(line);
             command = scanner.nextLine();
             System.out.println(line);
 
-            if(!command.equals("list") && !command.contains("mark")){
-                list.add(new Task(command));
+            if (command.startsWith("todo")){
+                String[] words = command.split("todo", 2);
+                Todo todo = new Todo(words[1]);
+                list.add(todo);
+                System.out.println(todo.toString());
+                System.out.println("Wohoo! You've got " + list.size() + " sparkly tasks floating in your list! ✨");
             }
+
+            if(command.startsWith("deadline")){
+                String[] words = command.split("deadline", 2);
+                Deadline deadline = new Deadline(words[1]);
+                list.add(deadline);
+                System.out.println(deadline.toString());
+                System.out.println("Wohoo! You've got " + list.size() + " sparkly tasks floating in your list! ✨");
+            }
+
+            if(command.startsWith("event")){
+                String[] words = command.split("event", 2);
+                Event event = new Event(words[1]);
+                list.add(event);
+                System.out.println(event.toString());
+                System.out.println("Wohoo! You've got " + list.size() + " sparkly tasks floating in your list! ✨");
+            }
+
             if(command.equals("list")){
                 System.out.println("Here are the tasks in your list: ");
                 for(int i = 0; i < list.size(); i++){
                     Task task = list.get(i);
-                    System.out.println("\t" + (i+1) + ".[" + task.getStatusIcon() +"] " + task.toString());
+                    System.out.println("\t" + (i+1) + "." + task.toString());
                 }
             }
 
@@ -42,7 +82,7 @@ public class Bubbles {
                 task.setDone();
 
                 System.out.println("Yayyy! Let's pop this task off!");
-                System.out.println("[" + task.getStatusIcon() + "] " + task.getDescription());
+                System.out.println(task.getStatusIcon() + task.getDescription());
             }
 
             if(command.startsWith("unmark")){
@@ -51,7 +91,7 @@ public class Bubbles {
                 task.setNotDone();
 
                 System.out.println("Okieee! Let's bubble it back in!");
-                System.out.println("[" + task.getStatusIcon() + "] " + task.getDescription());
+                System.out.println(task.getStatusIcon() + task.getDescription());
             }
         }
 
