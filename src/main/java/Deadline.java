@@ -1,3 +1,6 @@
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class Deadline extends Task{
     protected String by;
     protected String task;
@@ -10,11 +13,15 @@ public class Deadline extends Task{
         if(this.task.trim().isEmpty()){
             throw new BubblesException("Woops! You forgot to add the description!");
         }
-        this.by = words[1];
+        this.by = words[1].trim();
     }
 
     @Override
     public String toString(){
-        return "\t[D]" + this.getStatusIcon() + " " + this.task + "(by:" +  this.by + ")";
+        DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        LocalDateTime dt = LocalDateTime.parse(this.by, inputFormatter);
+
+        DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("MMM dd yyyy hh:mm a");
+        return "\t[D]" + this.getStatusIcon() + " " + this.task + "(by: " +  dt.format(outputFormatter) + ")";
     }
 }
