@@ -1,3 +1,6 @@
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class Event extends Task{
     protected String task;
     protected String from;
@@ -31,8 +34,8 @@ public class Event extends Task{
             if (words[1].trim().isEmpty()) {
                 throw new BubblesException("Woops! You forgot to add the to timing!");
             }
-            this.from = words[0];
-            this.to = words[1];
+            this.from = words[0].trim();
+            this.to = words[1].trim();
 //        } catch (BubblesException e){
 //            System.out.println(e.getMessage());
 //        }
@@ -40,6 +43,12 @@ public class Event extends Task{
 
     @Override
     public String toString(){
-        return "\t[E]" + this.getStatusIcon() + " " + this.task + "(from:" + this.from + "to:" + this.to +")";
+        DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        LocalDateTime from_time = LocalDateTime.parse(this.from, inputFormatter);
+        LocalDateTime to_time = LocalDateTime.parse(this.to, inputFormatter);
+
+        DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("MMM dd yyyy hh:mm a");
+
+        return "\t[E]" + this.getStatusIcon() + " " + this.task + "(from: " + from_time.format(outputFormatter) + " to: " + to_time.format(outputFormatter) +")";
     }
 }
