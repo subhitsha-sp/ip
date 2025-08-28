@@ -1,0 +1,12 @@
+	[D][X] sleep (by:  tmrw)
+	[E][X] new (from: now to: later)
+	[E][ ] fair (from: 2 to: 3)
+	[T][ ] play
+	[E][ ] talk (from: 6 to: 7)
+	[E][ ] trial (from: now to: then)
+	[D][ ] aiyo (by: tonight)
+	[D][X] due (by: tmrw)
+	[T][ ]  hello
+	[T][ ]  hello
+	[T][X]  task1
+	[T][ ] task 2
