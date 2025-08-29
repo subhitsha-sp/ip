@@ -1,4 +1,6 @@
+package bubbles;
 import java.util.Scanner;
+
 
 public class Bubbles {
     private Ui ui;

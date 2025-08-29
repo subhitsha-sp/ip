@@ -1,3 +1,5 @@
+package bubbles;
+
 public class Message {
     String msg;
     public Message(String msg){

@@ -3,3 +3,6 @@
 	[T][ ] hehe
 	[T][ ] hell
 	[T][X] write
+	[T][ ] over
+	[T][X] over
+	[T][ ] over1
