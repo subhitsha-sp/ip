@@ -1,3 +1,5 @@
+package bubbles;
+
 import java.util.ArrayList;
 
 public class Ui {
@@ -6,7 +8,7 @@ public class Ui {
     }
 
     public void showWelcome(){
-        System.out.println("Hello! I'm Bubbles 🫧 \nWhat can I do for you?");
+        System.out.println("Hello! I'm bubbles.Bubbles 🫧 \nWhat can I do for you?");
     }
 
     public void showExit(){

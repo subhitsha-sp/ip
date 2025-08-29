@@ -1,3 +1,5 @@
+package bubbles;
+
 public class ListCommand extends Command{
     private String command;
 
