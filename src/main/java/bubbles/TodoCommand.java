@@ -19,7 +19,7 @@ public void execute(TaskList tasks, Ui ui, Storage storage) {
         }
         Todo todo = new Todo(words[1].trim());
         tasks.add(todo);
-        ui.showAdd(todo, tasks.size());
+        System.out.println(ui.showAdd(todo, tasks.size()));
         Storage.append(todo.toString() + "\n");
 
     } catch (BubblesException e) {

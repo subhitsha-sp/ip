@@ -44,10 +44,14 @@ public class Ui {
         System.out.println(task);
     }
 
-    public void showAdd(Task task, int numTasks){
-        System.out.println("New bubble added to your list 📃");
-        System.out.println(task.toString());
-        System.out.println("Wohoo! You've got " + numTasks + " sparkly tasks floating in your list! ✨");
+//    public void showAdd(Task task, int numTasks){
+//        System.out.println("New bubble added to your list 📃");
+//        System.out.println(task.toString());
+//        System.out.println("Wohoo! You've got " + numTasks + " sparkly tasks floating in your list! ✨");
+//    }
+
+    public String showAdd(Task task, int numTasks){
+        return "New bubble added to your list 📃" + "\n" + task + "\n" + "Wohoo! You've got " + numTasks + " sparkly tasks floating in your list! ✨";
     }
 
     public void showLine(){

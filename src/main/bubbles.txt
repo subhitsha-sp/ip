@@ -5,4 +5,7 @@
 	[T][X] write
 	[T][ ] over
 	[T][X] over
-	[T][ ] over1
+	[T][X] over1
+	[T][ ] sleep
+	[T][ ] suby
+	[T][ ] suby
