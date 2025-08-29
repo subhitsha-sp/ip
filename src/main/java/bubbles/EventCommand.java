@@ -15,7 +15,7 @@ public class EventCommand extends Command{
             String[] words = command.split("event", 2);
             Event event = new Event(words[1].trim());
             tasks.add(event);
-            ui.showAdd(event, tasks.size());
+            System.out.println(ui.showAdd(event, tasks.size()));
             Storage.append(event.toString() + "\n");
 
         } catch (IOException e){

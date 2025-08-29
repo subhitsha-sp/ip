@@ -18,7 +18,7 @@ public class DeadlineCommand extends Command {
             String[] words = command.split("deadline", 2);
             Deadline deadline = new Deadline(words[1].trim());
             tasks.add(deadline);
-            ui.showAdd(deadline, tasks.size());
+            System.out.println(ui.showAdd(deadline, tasks.size()));
             Storage.append(deadline.toString() + "\n");
         } catch(BubblesException e){
             System.out.println(e.getMessage());
