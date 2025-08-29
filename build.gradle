@@ -28,12 +28,13 @@ test {
 }
 
 application {
-    mainClass.set("duke.Duke")
+    mainClass.set("bubbles.Bubbles")
 }
 
 shadowJar {
-    archiveBaseName = "duke"
+    archiveBaseName = "bubbles"
     archiveClassifier = null
+    archiveFileName = 'bubbles.jar'
 }
 
 run{
