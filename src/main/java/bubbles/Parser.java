@@ -33,6 +33,14 @@ public class Parser {
             return new ListCommand(command);
         }
 
+        else if (command.startsWith("find")){
+            return new FindCommand(command);
+        }
+
+        else if (command.equals("bye")) {
+            return new ByeCommand(command);
+        }
+
         else {
             throw new BubblesException("Sawwryy... that one bounced right off my bubblehead! I don't understand it yet 🥺");
         }

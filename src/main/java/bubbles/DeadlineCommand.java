@@ -1,6 +1,8 @@
 package bubbles;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class DeadlineCommand extends Command {
     private String command;
@@ -18,8 +20,21 @@ public class DeadlineCommand extends Command {
             String[] words = command.split("deadline", 2);
             Deadline deadline = new Deadline(words[1].trim());
             tasks.add(deadline);
+
             System.out.println(ui.showAdd(deadline, tasks.size()));
-            Storage.append(deadline.toString() + "\n");
+
+            String body = deadline.toString().split("] ")[1];
+            String description = body.split("\\(by")[0].trim();
+            String rawDate = body.substring(body.indexOf("(by:") + 5, body.length() - 1).trim();
+
+            DateTimeFormatter inputFormat = DateTimeFormatter.ofPattern("MMM dd yyyy hh:mm a");
+            LocalDateTime dateTime = LocalDateTime.parse(rawDate, inputFormat);
+
+            DateTimeFormatter outputFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+            String by = dateTime.format(outputFormat);
+
+
+            Storage.append("\t[D][ ] " + description + " " + "(by: " + by + ")" + "\n");
         } catch(BubblesException e){
             System.out.println(e.getMessage());
         }

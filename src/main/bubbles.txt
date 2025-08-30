@@ -1,7 +1,6 @@
 	[T][ ] hi
 	[T][X] haha
 	[T][ ] hehe
-	[T][ ] hell
 	[T][X] write
 	[T][ ] over
 	[T][X] over
@@ -9,3 +8,5 @@
 	[T][ ] sleep
 	[T][ ] suby
 	[T][ ] suby
+	[D][ ] hi (by: 2323-12-12 13:12)
+	[E][ ] heyyy (from: 2021-12-12 12:12 to: 1212-12-12 12:12)

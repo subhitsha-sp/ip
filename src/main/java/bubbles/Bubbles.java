@@ -39,7 +39,6 @@ public class Bubbles {
             ui.showLine();
         }
 
-        ui.showExit();
         scanner.close();
 
     }
