@@ -3,14 +3,26 @@ package bubbles;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * Represents a task with a start timing and end timing in the Bubbles chatbot.
+ * A {@code Event} task includes a description and a from and to date/time.
+ */
 public class Event extends Task{
     protected String task;
     protected String from;
     protected String to;
 
+    /**
+     * Constructs a {@code Event} task from the given description.
+     * The description contains "/from" and "/to" to separate the task
+     * description from the from and to date/time.
+     *
+     * @param description the full user input
+     * @throws BubblesException if the task description is missing or improperly formatted
+     */
     public Event(String description) throws BubblesException{
         super(description);
-//        try {
+
             String[] words = description.split("/from");
 
             if (words[0].trim().isEmpty()) {
@@ -38,11 +50,13 @@ public class Event extends Task{
             }
             this.from = words[0].trim();
             this.to = words[1].trim();
-//        } catch (BubblesException e){
-//            System.out.println(e.getMessage());
-//        }
     }
 
+    /**
+     * Returns a string representation of the event task.
+     *
+     * @return a string representing the event task
+     */
     @Override
     public String toString(){
         DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");

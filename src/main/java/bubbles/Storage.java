@@ -7,14 +7,29 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Responsible for handling reading and writing to the hard disk.
+ * The {@code Storage} class is responsible for loading saved tasks from disk and
+ * appending or overwriting task data.
+ */
 public class Storage {
     private String filePath;
 
+    /**
+     * Constructs a {@code Storage} object with the given file path.
+     *
+     * @param filePath the path to the file used for storing tasks
+     */
     public Storage(String filePath){
         this.filePath = filePath;
     }
 
-
+    /**
+     * Loads tasks from the file and adds it to the task list.
+     *
+     * @return an {@code ArrayList} of {@code Task} loaded from file
+     * @throws FileNotFoundException if the storage file does not exist
+     */
     public ArrayList<Task> load() throws FileNotFoundException{
         try{
             File f = new File(filePath);
@@ -70,15 +85,26 @@ public class Storage {
             System.out.println(e.getMessage());
         }
         return new ArrayList<>();
-
     }
 
+    /**
+     * Appends the given text to the file.
+     *
+     * @param textToAdd the text to append
+     * @throws IOException if an I/O error occurs
+     */
     public static void append(String textToAdd) throws IOException {
         try (FileWriter fw = new FileWriter("src/main/bubbles.txt", true)) {
             fw.write(textToAdd);
         }
     }
 
+    /**
+     * Overwrites the file with the given text.
+     *
+     * @param textToAdd the text to write
+     * @throws IOException if an I/O error occurs
+     */
     public static void write(String textToAdd) throws IOException {
         try (FileWriter fw = new FileWriter("src/main/bubbles.txt")) {
             fw.write(textToAdd);

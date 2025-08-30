@@ -4,13 +4,32 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * Represents a command to create a new deadline task.
+ */
+
 public class DeadlineCommand extends Command {
     private String command;
+
+    /**
+     * Constructs a {@code DeadlineCommand} with the given command string.
+     * This command creates a {@code Deadline} task when executed.
+     *
+     * @param command the user input for the deadline task
+     */
     public DeadlineCommand (String command) {
         super(command);
         this.command = command;
     }
 
+    /**
+     * Executes the deadline command which splits the descriptions and deadline.
+     * It also adds the task to the hard disk.
+     *
+     * @param tasks List of all the tasks.
+     * @param ui The UI.
+     * @param storage The list of tasks stored in the hard disk.
+     */
     @Override
     public void execute(TaskList tasks, Ui ui, Storage storage) {
         try {

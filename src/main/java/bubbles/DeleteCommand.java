@@ -2,14 +2,30 @@ package bubbles;
 
 import java.io.IOException;
 
+/**
+ * Represents a command to delete a task.
+ */
 public class DeleteCommand extends Command{
     private String command;
 
+    /**
+     * Constructs a {@code DeleteCommand} based on the index given in the command.
+     *
+     * @param command the user input for the deletion
+     */
     public DeleteCommand(String command) {
         super(command);
         this.command = command;
     }
 
+    /**
+     * Executes the deadline command which splits the descriptions and deadline.
+     * It also adds the task to the hard disk.
+     *
+     * @param tasks List of all the tasks.
+     * @param ui The UI.
+     * @param storage The list of tasks stored in the hard disk.
+     */
     @Override
     public void execute(TaskList tasks, Ui ui, Storage storage) {
         try{
