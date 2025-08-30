@@ -1,6 +1,10 @@
 package bubbles;
 import java.util.Scanner;
 
+/**
+ * The Bubbles class is the main entry point for running the chatbot.
+ * It handles the command input and execution loop.
+ */
 
 public class Bubbles {
     private Ui ui;
@@ -17,6 +21,9 @@ public class Bubbles {
         }
     }
 
+    /**
+     * Accepts commands from the user continuously and executes it till the user exits.
+     */
     public void run(){
         Scanner scanner = new Scanner(System.in);
 
@@ -38,10 +45,7 @@ public class Bubbles {
 
             ui.showLine();
         }
-
-        ui.showExit();
         scanner.close();
-
     }
 
     public static void main(String[] args) {

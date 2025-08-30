@@ -2,7 +2,21 @@ package bubbles;
 
 import java.io.IOException;
 
+/**
+ * The {@code Parser} class is responsible for interpreting the user's input
+ * and returning the required {@code Command} to be executed.
+ */
 public class Parser {
+    /**
+     * Parses the given user input and returns a corresponding {@code Command}.
+     * The method identifies the correct command by comparing the input string and
+     * instantiates an appropriate subclass of {@code Command}.
+     *
+     * @param command the user input
+     * @return a {@code Command} object
+     * @throws BubblesException if the input does not match any known command
+     */
+
     public static Command parse(String command) throws BubblesException {
         command = command.trim().toLowerCase();
         if (command.startsWith("todo")) {
@@ -31,6 +45,14 @@ public class Parser {
 
         else if (command.equals("list")) {
             return new ListCommand(command);
+        }
+
+        else if (command.startsWith("find")){
+            return new FindCommand(command);
+        }
+
+        else if (command.equals("bye")) {
+            return new ByeCommand(command);
         }
 
         else {

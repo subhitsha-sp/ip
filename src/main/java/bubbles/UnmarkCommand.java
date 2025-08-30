@@ -2,14 +2,30 @@ package bubbles;
 
 import java.io.IOException;
 
+/**
+ * Represents a command to unmark a task.
+ */
 public class UnmarkCommand extends Command {
     private String command;
 
+    /**
+     * Constructs a {@code UnmarkCommand}.
+     *
+     * @param command the user's input
+     */
     public UnmarkCommand(String command) {
         super(command);
         this.command = command;
     }
 
+    /**
+     * Executes the unmark command which unmarks a task which was marked completed
+     * based on the index provided. The task is then displayed marked as [ ].
+     *
+     * @param tasks List of all the tasks.
+     * @param ui The UI.
+     * @param storage The list of tasks stored in the hard disk.
+     */
     @Override
     public void execute(TaskList tasks, Ui ui, Storage storage) {
         String[] words = command.split(" ");
