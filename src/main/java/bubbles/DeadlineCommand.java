@@ -31,7 +31,7 @@ public class DeadlineCommand extends Command {
      * @param storage The list of tasks stored in the hard disk.
      */
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) {
+    public String execute(TaskList tasks, Ui ui, Storage storage) {
         try {
             if(!command.contains("/by")){
                 throw new BubblesException("Woops! You forgot to add the deadline!");
@@ -39,8 +39,6 @@ public class DeadlineCommand extends Command {
             String[] words = command.split("deadline", 2);
             Deadline deadline = new Deadline(words[1].trim());
             tasks.add(deadline);
-
-            System.out.println(ui.showAdd(deadline, tasks.size()));
 
             String body = deadline.toString().split("] ")[1];
             String description = body.split("\\(by")[0].trim();
@@ -52,13 +50,14 @@ public class DeadlineCommand extends Command {
             DateTimeFormatter outputFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
             String by = dateTime.format(outputFormat);
 
-
             Storage.append("\t[D][ ] " + description + " " + "(by: " + by + ")" + "\n");
+
+            return ui.showAdd(deadline, tasks.size());
         } catch(BubblesException e){
-            System.out.println(e.getMessage());
+            return e.getMessage();
         }
         catch (IOException e){
-            System.out.println("Error : Something went wrong!");
+            return "Error : Something went wrong!";
         }
     }
 }

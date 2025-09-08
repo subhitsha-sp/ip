@@ -11,7 +11,7 @@ public class TodoCommand extends Command {
     }
 
 @Override
-public void execute(TaskList tasks, Ui ui, Storage storage) {
+public String execute(TaskList tasks, Ui ui, Storage storage) {
     try {
         String[] words = this.command.split("todo", 2);
         if (words.length < 2 || words[1].isEmpty()) {
@@ -19,14 +19,15 @@ public void execute(TaskList tasks, Ui ui, Storage storage) {
         }
         Todo todo = new Todo(words[1].trim());
         tasks.add(todo);
-        System.out.println(ui.showAdd(todo, tasks.size()));
         Storage.append(todo.toString() + "\n");
 
+        return ui.showAdd(todo, tasks.size());
+
     } catch (BubblesException e) {
-        System.out.println(e.getMessage());
+        return e.getMessage();
     }
     catch (IOException e){
-        System.out.println("Error : Something went wrong!");
+        return "Error : Something went wrong!";
     }
     }
 }

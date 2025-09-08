@@ -25,7 +25,7 @@ public class ListCommand extends Command{
      * @param storage The list of tasks stored in the hard disk.
      */
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) {
-        ui.showTaskList(tasks.getAll());
+    public String execute(TaskList tasks, Ui ui, Storage storage) {
+        return ui.showTaskList(tasks.getAll());
     }
 }
