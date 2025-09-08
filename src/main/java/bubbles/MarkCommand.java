@@ -27,16 +27,15 @@ public class MarkCommand extends Command {
      * @param storage The list of tasks stored in the hard disk.
      */
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) {
+    public String execute(TaskList tasks, Ui ui, Storage storage) {
         String[] words = command.split(" ");
         Task task = tasks.get(Integer.parseInt(words[1]) - 1);
 
         if (task.getStatusIcon().equals("[X]")) {
-            System.out.println("Ayyyy! This task is already marked! 😅");
+            return "Ayyyy! This task is already marked! 😅";
         } else {
             try {
                 task.setDone();
-                ui.showMarked(task);
 
                 Storage.write(tasks.get(0).toString() + "\n");
 
@@ -44,8 +43,10 @@ public class MarkCommand extends Command {
                     Task write_task = tasks.get(i);
                     Storage.append(write_task.toString() + "\n");
                 }
+
+                return ui.showMarked(task);
             } catch (IOException e) {
-                System.out.println("Error : Something went wrong!");
+                return "Error : Something went wrong!";
             }
         }
     }

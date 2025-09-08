@@ -20,8 +20,8 @@ public class ByeCommand extends Command{
      * @param storage The list of tasks stored in the hard disk.
      */
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) {
-        ui.showExit();
+    public String execute(TaskList tasks, Ui ui, Storage storage) {
+        return ui.showExit();
     }
 }
 

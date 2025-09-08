@@ -30,31 +30,26 @@ public class FindCommand extends Command{
      * @param storage The list of tasks stored in the hard disk.
      */
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) {
+    public String execute(TaskList tasks, Ui ui, Storage storage) {
         int i = 1;
-        int count = 0;
+        StringBuilder result = new StringBuilder();
 
-        for(Task task: tasks.getAll()) {
+        for (Task task : tasks.getAll()) {
             String str = task.toString();
 
-            if (str.substring(7).trim().contains(this.word)) {
-                count++;
+            if (str.length() > 7 && str.substring(7).trim().contains(this.word)) {
+                if (result.isEmpty()) {
+                    result.append("Here are the bubbles that match:\n");
+                }
+                result.append("\t").append(i).append(". ").append(task).append("\n");
+                i++;
             }
         }
 
-        if (count > 0) {
-            System.out.println("Here are the bubbles that match: ");
-        } else {
-            System.out.println("Uh-oh! Not found in my bubble land!");
+        if (result.isEmpty()) {
+            return "Uh-oh! Not found in my bubble land!";
         }
 
-        for(Task task: tasks.getAll()){
-            String str = task.toString();
-
-            if (str.substring(7).trim().contains(this.word)) {
-                System.out.println("\t" + Integer.toString(i) + "." + task);
-                i ++;
-            }
-        }
+        return result.toString();
     }
 }

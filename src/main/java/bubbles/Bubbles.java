@@ -29,7 +29,7 @@ public class Bubbles {
 
         String command = "";
 
-        ui.showWelcome();
+        System.out.println(ui.showWelcome());
         ui.showLine();
 
         while (!command.equals("bye")) {
@@ -46,6 +46,15 @@ public class Bubbles {
             ui.showLine();
         }
         scanner.close();
+    }
+
+    public String getResponse(String input) {
+        try {
+            Command c = Parser.parse(input);
+            return c.execute(tasks, ui, storage);
+        } catch (BubblesException e) {
+            return ui.showBubblesException(e);
+        }
     }
 
     public static void main(String[] args) {

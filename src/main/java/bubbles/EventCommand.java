@@ -30,12 +30,11 @@ public class EventCommand extends Command{
      * @param storage The list of tasks stored in the hard disk.
      */
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) {
+    public String execute(TaskList tasks, Ui ui, Storage storage) {
         try {
             String[] words = command.split("event", 2);
             Event event = new Event(words[1].trim());
             tasks.add(event);
-            System.out.println(ui.showAdd(event, tasks.size()));
 
             String body = event.toString().split("] ")[1];
             String description = body.split("\\(from")[0].trim();
@@ -52,10 +51,12 @@ public class EventCommand extends Command{
 
             Storage.append("\t[E][ ] " + description + " " + "(from: " + from + " to: " + to+ ")" + "\n");
 
+            return ui.showAdd(event, tasks.size());
+
         } catch (IOException e){
-            System.out.println("Error : Something went wrong!");
+            return "Error : Something went wrong!";
         } catch (BubblesException e){
-            System.out.println(e.getMessage());
+            return e.getMessage();
         }
     }
 }
