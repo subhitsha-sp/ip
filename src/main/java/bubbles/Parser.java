@@ -43,6 +43,8 @@ public class Parser {
             return new FindCommand(command);
         } else if (command.equals("bye")) {
             return new ByeCommand(command);
+        } else if (command.equals("help")) {
+            return new HelpCommand(command);
         } else {
             throw new BubblesException("Sawwryy... that one bounced right off my bubblehead! I don't understand it yet T.T");
         }

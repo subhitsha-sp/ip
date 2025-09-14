@@ -85,6 +85,19 @@ public String showAdd(Task task, int numTasks){
     return "New bubble added to your list! " + "\n" + task + "\n" + "Wohoo! You've got " + numTasks + " sparkly tasks floating in your list!";
 }
 
+public String showHelp(){
+    return "Whooosh! I'm here for your help! " +
+            "\n" + "1. To add a todo: todo <descriptiom> " +
+            "\n" + "2. To add a deadline: deadline <descriptiom> /by <yyyy-mm-dd hh:mm>" +
+            "\n" + "3. To add a event: event <descriptiom> /from <yyyy-mm-dd hh:mm> /to <yyyy-mm-dd hh:mm>" +
+            "\n" + "4. To mark a task as done: mark <task number>" +
+            "\n" + "5. To unmark a task: unmark <task number>" +
+            "\n" + "6. To delete a task: delete <task number>" +
+            "\n" + "7. To find a task: find <keyword>" +
+            "\n" + "8. To list all tasks: list" +
+            "\n" + "9. To exit: bye" + "\n";
+}
+
 /**
  * Displays a horizontal line as a separator.
  */
