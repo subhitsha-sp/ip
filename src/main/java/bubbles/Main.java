@@ -19,7 +19,7 @@ public class Main extends Application {
     private Button sendButton;
     private Scene scene;
 
-    private Image userImage = new Image(this.getClass().getResourceAsStream("/images/DaUser.png"));
+    private Image userImage = new Image(this.getClass().getResourceAsStream("/images/User.png"));
     private Image dukeImage = new Image(this.getClass().getResourceAsStream("/images/Bubbles.png"));
 
     private Bubbles bubbles = new Bubbles("src/main/bubbles.txt");

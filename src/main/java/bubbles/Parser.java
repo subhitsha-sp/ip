@@ -18,20 +18,26 @@ public class Parser {
      */
 
     public static Command parse(String command) throws BubblesException {
+        assert command != null : "The command must not be null!";
+
         command = command.trim().toLowerCase();
         if (command.startsWith("todo")) {
+            assert command.length() > 4 : "Todo command should have a description!";
             return new TodoCommand(command);
         }
 
         else if (command.startsWith("deadline")) {
+            assert command.contains("/by") : "Deadline command must contain '/by'!";
             return new DeadlineCommand(command);
         }
 
         else if (command.startsWith("event")) {
+            assert command.contains("/from") && command.contains("/to") : "Event command must contain '/from' and '/too'!";
             return new EventCommand(command);
         }
 
         else if (command.startsWith("mark")) {
+            assert command.length() > 4: "Sample error";
             return new MarkCommand(command);
         }
 
@@ -56,7 +62,7 @@ public class Parser {
         }
 
         else {
-            throw new BubblesException("Sawwryy... that one bounced right off my bubblehead! I don't understand it yet 🥺");
+            throw new BubblesException("Sawwryy... that one bounced right off my bubblehead! I don't understand it yet T.T");
         }
 
 
