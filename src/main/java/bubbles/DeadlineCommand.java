@@ -55,8 +55,7 @@ public class DeadlineCommand extends Command {
             return ui.showAdd(deadline, tasks.size());
         } catch(BubblesException e){
             return e.getMessage();
-        }
-        catch (IOException e){
+        } catch (IOException e){
             return "Error : Something went wrong!";
         }
     }

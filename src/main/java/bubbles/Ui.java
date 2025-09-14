@@ -26,12 +26,6 @@ public class Ui{
      * @param list the list which contains all the current tasks
      */
     public String showTaskList(ArrayList<Task> list){
-//        System.out.println("Here are the tasks in your list: ");
-//        for (int i = 0; i < list.size(); i++) {
-//            Task task = list.get(i);
-//            System.out.println("\t" + (i + 1) + "." + task.toString());
-//        }
-
         StringBuilder sb = new StringBuilder("Here are the tasks in your list:\n");
         for (int i = 0; i < list.size(); i++) {
             sb.append("\t").append(i + 1).append(". ").append(list.get(i)).append("\n");

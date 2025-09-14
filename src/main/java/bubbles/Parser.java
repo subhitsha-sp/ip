@@ -24,44 +24,26 @@ public class Parser {
         if (command.startsWith("todo")) {
             assert command.length() > 4 : "Todo command should have a description!";
             return new TodoCommand(command);
-        }
-
-        else if (command.startsWith("deadline")) {
+        } else if (command.startsWith("deadline")) {
             assert command.contains("/by") : "Deadline command must contain '/by'!";
             return new DeadlineCommand(command);
-        }
-
-        else if (command.startsWith("event")) {
+        } else if (command.startsWith("event")) {
             assert command.contains("/from") && command.contains("/to") : "Event command must contain '/from' and '/too'!";
             return new EventCommand(command);
-        }
-
-        else if (command.startsWith("mark")) {
+        } else if (command.startsWith("mark")) {
             assert command.length() > 4: "Sample error";
             return new MarkCommand(command);
-        }
-
-        else if (command.startsWith("unmark")) {
+        } else if (command.startsWith("unmark")) {
             return new UnmarkCommand(command);
-        }
-
-        else if (command.startsWith("delete")) {
+        } else if (command.startsWith("delete")) {
             return new DeleteCommand(command);
-        }
-
-        else if (command.equals("list")) {
+        } else if (command.equals("list")) {
             return new ListCommand(command);
-        }
-
-        else if (command.startsWith("find")){
+        } else if (command.startsWith("find")){
             return new FindCommand(command);
-        }
-
-        else if (command.equals("bye")) {
+        } else if (command.equals("bye")) {
             return new ByeCommand(command);
-        }
-
-        else {
+        } else {
             throw new BubblesException("Sawwryy... that one bounced right off my bubblehead! I don't understand it yet T.T");
         }
 
