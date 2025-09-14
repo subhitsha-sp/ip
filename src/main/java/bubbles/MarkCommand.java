@@ -32,7 +32,7 @@ public class MarkCommand extends Command {
         Task task = tasks.get(Integer.parseInt(words[1]) - 1);
 
         if (task.getStatusIcon().equals("[X]")) {
-            return "Ayyyy! This task is already marked! 😅";
+            return "Ayyyy! This task is already marked! >.<";
         } else {
             try {
                 task.setDone();

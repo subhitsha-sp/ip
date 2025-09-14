@@ -15,7 +15,7 @@ public String execute(TaskList tasks, Ui ui, Storage storage) {
     try {
         String[] words = this.command.split("todo", 2);
         if (words.length < 2 || words[1].isEmpty()) {
-            throw new BubblesException("Oopsies! You forgot to give me the description 🤭");
+            throw new BubblesException("Oopsies! You forgot to give me the description.");
         }
         Todo todo = new Todo(words[1].trim());
         tasks.add(todo);
@@ -25,8 +25,7 @@ public String execute(TaskList tasks, Ui ui, Storage storage) {
 
     } catch (BubblesException e) {
         return e.getMessage();
-    }
-    catch (IOException e){
+    } catch (IOException e){
         return "Error : Something went wrong!";
     }
     }

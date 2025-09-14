@@ -32,7 +32,7 @@ public class UnmarkCommand extends Command {
         Task task = tasks.get(Integer.parseInt(words[1]) - 1);
 
         if (task.getStatusIcon().equals("[ ]")) {
-            return"Ayyyy! This task is already unmarked! 😅";
+            return"Ayyyy! This task is already unmarked! >.<";
         } else {
             try {
                 task.setNotDone();

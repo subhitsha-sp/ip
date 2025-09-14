@@ -10,14 +10,14 @@ public class Ui{
      * Displays the welcome message when the chatbot starts.
      */
     public String showWelcome(){
-        return "Hello! I'm Bubbles 🫧 \nWhat can I do for you?";
+        return "Hello! I'm Bubbles! \nWhat can I do for you?";
     }
 
     /**
      * Displays the exit message when the user leaves.
      */
     public String showExit(){
-        return "Byeee 👋";
+        return "Byeee! ";
     }
 
     /**
@@ -26,12 +26,6 @@ public class Ui{
      * @param list the list which contains all the current tasks
      */
     public String showTaskList(ArrayList<Task> list){
-//        System.out.println("Here are the tasks in your list: ");
-//        for (int i = 0; i < list.size(); i++) {
-//            Task task = list.get(i);
-//            System.out.println("\t" + (i + 1) + "." + task.toString());
-//        }
-
         StringBuilder sb = new StringBuilder("Here are the tasks in your list:\n");
         for (int i = 0; i < list.size(); i++) {
             sb.append("\t").append(i + 1).append(". ").append(list.get(i)).append("\n");
@@ -67,7 +61,7 @@ public String showBubblesException(BubblesException e) {
  * @param task the task that was marked
  */
 public String showMarked(Task task){
-    return "Yayyy! Let's pop this task off 🥳\n" + task;
+    return "Yayyy! Let's pop this task off! \n" + task;
 
 }
 
@@ -88,7 +82,7 @@ public String showUnmarked(Task task){
  * @param numTasks the number of tasks currently in the list
  */
 public String showAdd(Task task, int numTasks){
-    return "New bubble added to your list 📃" + "\n" + task + "\n" + "Wohoo! You've got " + numTasks + " sparkly tasks floating in your list! ✨";
+    return "New bubble added to your list! " + "\n" + task + "\n" + "Wohoo! You've got " + numTasks + " sparkly tasks floating in your list!";
 }
 
 /**
