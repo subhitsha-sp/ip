@@ -8,6 +8,8 @@ import javafx.scene.layout.HBox;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
+import javafx.scene.text.TextAlignment;
+import javafx.geometry.Insets;
 
 public class DialogBox extends HBox {
 
@@ -36,9 +38,17 @@ public class DialogBox extends HBox {
         displayPicture = new ImageView(i);
 
         text.setWrapText(true);
+        text.setTextAlignment(TextAlignment.LEFT);
+        text.setStyle("-fx-background-color: #d1e7dd; -fx-background-radius: 15; -fx-padding: 10; -fx-font-size: 14px;");
+        text.setMaxWidth(250);
+
         displayPicture.setFitWidth(75.0);
         displayPicture.setFitHeight(75.0);
+
         this.setAlignment(Pos.TOP_RIGHT);
+        this.setSpacing(10);
+        this.setPadding(new Insets(10, 10, 10, 10));
+
 
         this.getChildren().addAll(text, displayPicture);
     }

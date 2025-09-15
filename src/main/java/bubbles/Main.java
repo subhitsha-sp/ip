@@ -27,8 +27,6 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) {
         //Setting up required components
-
-
         scrollPane = new ScrollPane();
         dialogContainer = new VBox();
         scrollPane.setContent(dialogContainer);
@@ -48,7 +46,7 @@ public class Main extends Application {
 
         scene = new Scene(mainLayout);
 
-        stage.setTitle("Duke");
+        stage.setTitle("Bubbles");
         stage.setResizable(false);
         stage.setMinHeight(600.0);
         stage.setMinWidth(400.0);
@@ -80,8 +78,6 @@ public class Main extends Application {
         stage.show();
 
         dialogContainer.heightProperty().addListener((observable) -> scrollPane.setVvalue(1.0));
-
-        //More code to be added here later
     }
 
     private void handleUserInput() {
@@ -93,5 +89,4 @@ public class Main extends Application {
         );
         userInput.clear();
     }
-
 }
