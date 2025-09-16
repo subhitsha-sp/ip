@@ -28,27 +28,40 @@ public class UnmarkCommand extends Command {
      */
     @Override
     public String execute(TaskList tasks, Ui ui, Storage storage) {
-        String[] words = command.split(" ");
-        Task task = tasks.get(Integer.parseInt(words[1]) - 1);
+        try {
+            String[] words = command.split(" ");
 
-        if (task.getStatusIcon().equals("[ ]")) {
-            return"Ayyyy! This task is already unmarked! >.<";
-        } else {
-            try {
-                task.setNotDone();
-
-                Storage.write(tasks.get(0).toString() + "\n");
-
-                for (int i = 1; i < tasks.size(); i++) {
-                    Task write_task = tasks.get(i);
-                    Storage.append(write_task.toString() + "\n");
-                }
-
-                return ui.showUnmarked(task);
-
-            } catch (IOException e) {
-                return "Error : Something went wrong!";
+            if (words.length == 1) {
+                throw new BubblesException("Oopsie! Add in the index number >u<");
             }
+
+            if (tasks.size() < Integer.parseInt(words[1]) || Integer.parseInt(words[1]) < 1) {
+                throw new BubblesException("Eep! There's no such task number!");
+            }
+
+            Task task = tasks.get(Integer.parseInt(words[1]) - 1);
+
+            if (task.getStatusIcon().equals("[ ]")) {
+                return "Ayyyy! This task is already unmarked! >.<";
+            } else {
+                try {
+                    task.setNotDone();
+
+                    Storage.write(tasks.get(0).toString() + "\n");
+
+                    for (int i = 1; i < tasks.size(); i++) {
+                        Task write_task = tasks.get(i);
+                        Storage.append(write_task.toString() + "\n");
+                    }
+
+                    return ui.showUnmarked(task);
+
+                } catch (IOException e) {
+                    return "Error : Something went wrong!";
+                }
+            }
+        } catch (BubblesException e){
+            return e.getMessage();
         }
     }
 }

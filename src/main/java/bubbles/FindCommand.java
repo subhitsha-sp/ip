@@ -14,9 +14,14 @@ public class FindCommand extends Command{
      *
      * @param command the user input for the keyword
      */
-    public FindCommand(String command) {
+    public FindCommand(String command) throws BubblesException {
         super(command);
         this.command = command;
+
+        if (this.command.length() < 5){
+            throw new BubblesException("Whoops! Don't forget the keyword to search for.");
+        }
+
         this.word = command.substring(5).trim();
     }
 

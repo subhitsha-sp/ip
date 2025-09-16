@@ -30,6 +30,11 @@ public class DeleteCommand extends Command{
     public String execute(TaskList tasks, Ui ui, Storage storage) {
         try{
             String[] words = command.split(" ");
+
+            if (tasks.size() < Integer.parseInt(words[1]) || Integer.parseInt(words[1]) < 1){
+                throw new BubblesException("Eep! There's no such task number!");
+            }
+
             Task task = tasks.get(Integer.parseInt(words[1]) - 1);
             tasks.remove(Integer.parseInt(words[1]) - 1);
 
@@ -46,6 +51,8 @@ public class DeleteCommand extends Command{
 
         } catch (IOException e){
                 return "Error : Something went wrong!";
-            }
+        } catch (BubblesException e){
+            return e.getMessage();
+        }
     }
 }

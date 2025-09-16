@@ -1,3 +1,0 @@
-	[T][X] eat
-	[T][ ] sleep
-	[T][ ] project
