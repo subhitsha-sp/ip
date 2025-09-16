@@ -12,10 +12,7 @@ public class UiTest {
 
         String result = ui.showAdd(taskName, taskCount);
 
-        String expected = """
-            New bubble added to your list 📃
-            suby
-            Wohoo! You've got 12 sparkly tasks floating in your list! ✨""";
+        String expected = "New bubble added to your list! " + "\n" + "suby" +"\n" + "Wohoo! You've got 12 sparkly tasks floating in your list!";
 
         assertEquals(expected, result);
     }

@@ -12,7 +12,7 @@ public class ParserTest {
             Parser.parse(command);
 
         } catch (Exception e) {
-            assertEquals("Sawwryy... that one bounced right off my bubblehead! I don't understand it yet 🥺", e.getMessage());
+            assertEquals("Sawwryy... that one bounced right off my bubblehead! I don't understand it yet T.T", e.getMessage());
         }
     }
 
