@@ -31,6 +31,10 @@ public class DeleteCommand extends Command{
         try{
             String[] words = command.split(" ");
 
+            if (words.length == 1) {
+                throw new BubblesException("Oopsie! Add in the index number >u<");
+            }
+
             if (tasks.size() < Integer.parseInt(words[1]) || Integer.parseInt(words[1]) < 1){
                 throw new BubblesException("Eep! There's no such task number!");
             }

@@ -1,4 +1,4 @@
-# bubbles.Bubbles User Guide
+# Bubbles User Guide
 
 // Update the title above to match the actual product name
 

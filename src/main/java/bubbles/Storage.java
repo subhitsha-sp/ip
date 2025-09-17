@@ -55,15 +55,19 @@ public class Storage {
                     tasklist.add(todo);
                 }
 
-                if (ch == 'D'){
-                    String by = words[1].split("by:")[1].substring(0, words[1].split("by:")[1].length()-1);
-                    Deadline deadline = new Deadline(words[1].split(" ")[0] + " /by" + by);
+                if (ch == 'D') {
+                    try {
+                        String by = words[1].split("by:")[1].substring(0, words[1].split("by:")[1].length() - 1);
+                        Deadline deadline = new Deadline(words[1].split(" \\(by")[0] + " /by" + by);
 
-                    if(str.contains("[X]")){
-                        deadline.setDone();
+                        if (str.contains("[X]")) {
+                            deadline.setDone();
+                        }
+
+                        tasklist.add(deadline);
+                    } catch (Exception e) {
+                        System.out.println("Error loading deadline: " + e.getMessage());
                     }
-
-                    tasklist.add(deadline);
                 }
 
                 if (ch == 'E'){
@@ -80,6 +84,7 @@ public class Storage {
                     tasklist.add(event);
                 }
             }
+
             return tasklist;
         } catch (BubblesException e){
             System.out.println(e.getMessage());

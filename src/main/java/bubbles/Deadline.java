@@ -8,8 +8,9 @@ import java.time.format.DateTimeFormatter;
  * A {@code Deadline} task includes a description and a due date and time.
  */
 public class Deadline extends Task{
-    protected String by;
-    protected String task;
+    private String by;
+    private String task;
+    private LocalDateTime due;
 
     /**
      * Constructs a {@code Deadline} task from the given description.
@@ -28,6 +29,24 @@ public class Deadline extends Task{
             throw new BubblesException("Woops! You forgot to add the description!");
         }
         this.by = words[1].trim();
+        this.due =  parseFlexibleDate(this.by);
+    }
+
+    private LocalDateTime parseFlexibleDate(String dateStr) throws BubblesException {
+        DateTimeFormatter[] formats = {
+                DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"),
+                DateTimeFormatter.ofPattern("MMM dd yyyy hh:mm a")
+        };
+
+        for (DateTimeFormatter format : formats) {
+            try {
+                return LocalDateTime.parse(dateStr, format);
+            } catch (Exception ignored) {
+                // Try next format
+            }
+        }
+
+        throw new BubblesException("Unrecognized date format: " + dateStr);
     }
 
     /**
@@ -36,11 +55,9 @@ public class Deadline extends Task{
      * @return a string representing the deadline task
      */
     @Override
-    public String toString(){
-        DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-        LocalDateTime dt = LocalDateTime.parse(this.by, inputFormatter);
+    public String toString() {
+            DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("MMM dd yyyy hh:mm a");
+            return "\t[D]" + this.getStatusIcon() + " " + this.task + "(by: " + due.format(outputFormatter) + ")";
 
-        DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("MMM dd yyyy hh:mm a");
-        return "\t[D]" + this.getStatusIcon() + " " + this.task + "(by: " +  dt.format(outputFormatter) + ")";
     }
 }

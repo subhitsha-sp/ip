@@ -1,0 +1,6 @@
+	[E][ ] meeting (from: Dec 12 2025 12:12 pm to: Nov 12 2025 11:12 pm)
+	[D][ ] submit (by: Sep 23 2026 11:23 pm)
+	[E][X] sad day (from: Dec 12 2025 12:12 pm to: Dec 12 2025 12:12 pm)
+	[D][ ] ok (by: Dec 12 2025 12:12 pm)
+	[D][ ] sad day (by: 2025-12-12 12:12)
+	[D][ ] good work (by: 2025-12-12 12:12)

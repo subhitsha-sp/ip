@@ -11,6 +11,9 @@ public class Event extends Task{
     protected String task;
     protected String from;
     protected String to;
+    private LocalDateTime fromTime;
+    private LocalDateTime toTime;
+
 
     /**
      * Constructs a {@code Event} task from the given description.
@@ -38,18 +41,19 @@ public class Event extends Task{
         }
             words = words[1].split("/to");
 
-
-
             if (words[0].trim().isEmpty()) {
                 throw new BubblesException("Woops! You forgot to add in the from timing!");
             }
 
-
             if (words[1].trim().isEmpty()) {
                 throw new BubblesException("Woops! You forgot to add the to timing!");
             }
+
             this.from = words[0].trim();
             this.to = words[1].trim();
+
+            this.fromTime = parseFlexibleDate(this.from);
+            this.toTime = parseFlexibleDate(this.to);
     }
 
     /**
@@ -57,14 +61,34 @@ public class Event extends Task{
      *
      * @return a string representing the event task
      */
-    @Override
-    public String toString(){
-        DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-        LocalDateTime from_time = LocalDateTime.parse(this.from, inputFormatter);
-        LocalDateTime to_time = LocalDateTime.parse(this.to, inputFormatter);
+    public String toString() {
+        try {
+            DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("MMM dd yyyy hh:mm a");
+            return "\t[E]" + this.getStatusIcon() + " " + this.task +
+                    "(from: " + fromTime.format(outputFormatter) +
+                    " to: " + toTime.format(outputFormatter) + ")";
 
-        DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("MMM dd yyyy hh:mm a");
+        } catch (Exception e) {
+            return "Oops! : " + e.getMessage();
+        }
 
-        return "\t[E]" + this.getStatusIcon() + " " + this.task + "(from: " + from_time.format(outputFormatter) + " to: " + to_time.format(outputFormatter) +")";
     }
+
+    private LocalDateTime parseFlexibleDate(String dateStr) throws BubblesException {
+        DateTimeFormatter[] formats = {
+                DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"),
+                DateTimeFormatter.ofPattern("MMM dd yyyy hh:mm a")
+        };
+
+        for (DateTimeFormatter format : formats) {
+            try {
+                return LocalDateTime.parse(dateStr, format);
+            } catch (Exception ignored) {
+                // Try next format
+            }
+        }
+
+        throw new BubblesException("Unrecognized date format: " + dateStr);
+    }
+
 }
