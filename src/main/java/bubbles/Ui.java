@@ -10,7 +10,7 @@ public class Ui{
      * Displays the welcome message when the chatbot starts.
      */
     public String showWelcome(){
-        return "Hello! I'm Bubbles! \nWhat can I do for you?";
+        return "Hello! I'm Bubbles! \nWhat can I do for you? \n\nUnsure? Just type in 'help'";
     }
 
     /**
@@ -87,9 +87,9 @@ public String showAdd(Task task, int numTasks){
 
 public String showHelp(){
     return "Whooosh! I'm here for your help! " +
-            "\n" + "1. To add a todo: todo <descriptiom> " +
-            "\n" + "2. To add a deadline: deadline <descriptiom> /by <yyyy-mm-dd hh:mm>" +
-            "\n" + "3. To add a event: event <descriptiom> /from <yyyy-mm-dd hh:mm> /to <yyyy-mm-dd hh:mm>" +
+            "\n" + "1. To add a todo: todo <description> " +
+            "\n" + "2. To add a deadline: deadline <description> /by <yyyy-mm-dd hh:mm>" +
+            "\n" + "3. To add a event: event <description> /from <yyyy-mm-dd hh:mm> /to <yyyy-mm-dd hh:mm>" +
             "\n" + "4. To mark a task as done: mark <task number>" +
             "\n" + "5. To unmark a task: unmark <task number>" +
             "\n" + "6. To delete a task: delete <task number>" +
