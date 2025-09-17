@@ -20,7 +20,7 @@ public class Main extends Application {
     private Scene scene;
 
     private Image userImage = new Image(this.getClass().getResourceAsStream("/images/User.png"));
-    private Image dukeImage = new Image(this.getClass().getResourceAsStream("/images/Bubbles.png"));
+    private Image bubblesImage = new Image(this.getClass().getResourceAsStream("/images/Bubbles.png"));
 
     private Bubbles bubbles = new Bubbles("bubbles.txt");
 
@@ -77,6 +77,10 @@ public class Main extends Application {
         stage.setScene(scene);
         stage.show();
 
+        dialogContainer.getChildren().add(
+                DialogBox.getDukeDialog(bubbles.getResponse("hello"), bubblesImage)
+        );
+
         dialogContainer.heightProperty().addListener((observable) -> scrollPane.setVvalue(1.0));
     }
 
@@ -85,7 +89,7 @@ public class Main extends Application {
         String dukeText = bubbles.getResponse(userInput.getText());
         dialogContainer.getChildren().addAll(
                 DialogBox.getUserDialog(userText, userImage),
-                DialogBox.getDukeDialog(dukeText, dukeImage)
+                DialogBox.getDukeDialog(dukeText, bubblesImage)
         );
         userInput.clear();
     }

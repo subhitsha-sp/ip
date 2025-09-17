@@ -49,6 +49,9 @@ public class Bubbles {
     }
 
     public String getResponse(String input) {
+        if (input.trim().equalsIgnoreCase("hello")) {
+            return ui.showWelcome();
+        }
         try {
             Command c = Parser.parse(input);
             return c.execute(tasks, ui, storage);
