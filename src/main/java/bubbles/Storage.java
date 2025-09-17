@@ -99,7 +99,7 @@ public class Storage {
      * @throws IOException if an I/O error occurs
      */
     public static void append(String textToAdd) throws IOException {
-        try (FileWriter fw = new FileWriter("src/main/bubbles.txt", true)) {
+        try (FileWriter fw = new FileWriter("bubbles.txt", true)) {
             fw.write(textToAdd);
         }
     }
@@ -111,7 +111,7 @@ public class Storage {
      * @throws IOException if an I/O error occurs
      */
     public static void write(String textToAdd) throws IOException {
-        try (FileWriter fw = new FileWriter("src/main/bubbles.txt")) {
+        try (FileWriter fw = new FileWriter("bubbles.txt")) {
             fw.write(textToAdd);
         }
     }

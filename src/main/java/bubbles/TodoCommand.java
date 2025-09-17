@@ -26,7 +26,7 @@ public String execute(TaskList tasks, Ui ui, Storage storage) {
     } catch (BubblesException e) {
         return e.getMessage();
     } catch (IOException e){
-        return "Error : Something went wrong!";
+        return "Error : Something went wrong!" + e.getMessage();
     }
     }
 }

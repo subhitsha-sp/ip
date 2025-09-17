@@ -22,7 +22,7 @@ public class Main extends Application {
     private Image userImage = new Image(this.getClass().getResourceAsStream("/images/User.png"));
     private Image dukeImage = new Image(this.getClass().getResourceAsStream("/images/Bubbles.png"));
 
-    private Bubbles bubbles = new Bubbles("src/main/bubbles.txt");
+    private Bubbles bubbles = new Bubbles("bubbles.txt");
 
     @Override
     public void start(Stage stage) {

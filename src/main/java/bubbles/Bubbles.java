@@ -58,6 +58,6 @@ public class Bubbles {
     }
 
     public static void main(String[] args) {
-        new Bubbles("src/main/bubbles.txt").run();
+        new Bubbles("bubbles.txt").run();
     }
 }
