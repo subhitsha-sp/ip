@@ -78,7 +78,7 @@ public class Main extends Application {
         stage.show();
 
         dialogContainer.getChildren().add(
-                DialogBox.getDukeDialog(bubbles.getResponse("hello"), bubblesImage)
+                DialogBox.getBubblesDialog(bubbles.getResponse("hello"), bubblesImage)
         );
 
         dialogContainer.heightProperty().addListener((observable) -> scrollPane.setVvalue(1.0));
@@ -86,10 +86,10 @@ public class Main extends Application {
 
     private void handleUserInput() {
         String userText = userInput.getText();
-        String dukeText = bubbles.getResponse(userInput.getText());
+        String bubblesText = bubbles.getResponse(userInput.getText());
         dialogContainer.getChildren().addAll(
                 DialogBox.getUserDialog(userText, userImage),
-                DialogBox.getDukeDialog(dukeText, bubblesImage)
+                DialogBox.getBubblesDialog(bubblesText, bubblesImage)
         );
         userInput.clear();
     }
