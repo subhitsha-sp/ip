@@ -49,6 +49,10 @@ public class Deadline extends Task{
         throw new BubblesException("Unrecognized date format: " + dateStr);
     }
 
+    public String getDescription(){
+        return this.task;
+    }
+
     /**
      * Returns a string representation of the deadline task.
      *
@@ -57,7 +61,6 @@ public class Deadline extends Task{
     @Override
     public String toString() {
             DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("MMM dd yyyy hh:mm a");
-            return "\t[D]" + this.getStatusIcon() + " " + this.task + "(by: " + due.format(outputFormatter) + ")";
-
+            return "\t[D]" + this.getStatusIcon() + " " + getDescription() + "(by: " + due.format(outputFormatter) + ")";
     }
 }

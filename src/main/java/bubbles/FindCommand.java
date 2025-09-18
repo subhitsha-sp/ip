@@ -42,7 +42,7 @@ public class FindCommand extends Command{
         for (Task task : tasks.getAll()) {
             String str = task.toString();
 
-            if (str.length() > 7 && str.substring(7).trim().contains(this.word)) {
+            if (str.length() > 7 && task.getDescription().contains(this.word)) {
                 if (result.isEmpty()) {
                     result.append("Here are the bubbles that match:\n");
                 }

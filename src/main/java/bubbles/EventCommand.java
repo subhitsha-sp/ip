@@ -9,6 +9,7 @@ import java.time.format.DateTimeFormatter;
  */
 public class EventCommand extends Command{
     private String command;
+    private String description;
 
     /**
      * Constructs a {@code EventCommand} with the given command string.
@@ -20,6 +21,8 @@ public class EventCommand extends Command{
         super(command);
         this.command = command;
     }
+
+
 
     /**
      * Executes the event command which splits the descriptions and from and to date/time.
@@ -37,7 +40,7 @@ public class EventCommand extends Command{
             tasks.add(event);
 
             String body = event.toString().split("] ")[1];
-            String description = body.split("\\(from")[0].trim();
+            this.description = body.split("\\(from")[0].trim();
             String rawFrom = body.split("\\(from: ")[1].trim().split("to:")[0].trim();
             String rawTo = body.substring(body.indexOf("to:") + 4, body.length() - 1).trim();
 
@@ -58,5 +61,9 @@ public class EventCommand extends Command{
         } catch (BubblesException e){
             return e.getMessage();
         }
+    }
+
+    public String getDescription(){
+        return description;
     }
 }

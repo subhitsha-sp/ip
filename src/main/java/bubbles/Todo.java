@@ -9,8 +9,12 @@ public class Todo extends Task{
         return "[T]";
     }
 
+    public String getDescription(){
+        return super.toString();
+    }
+
     @Override
     public String toString(){
-        return "\t[T]" + this.getStatusIcon() + " " +super.toString();
+        return "\t[T]" + this.getStatusIcon() + " " + getDescription();
     }
 }
